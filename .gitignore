@@ -3,7 +3,8 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/main/VisualStudio.gitignore
 
-#./VinylCollection/appsettings.json
+# appsettings.json
+/VinylCollection/appsettings.json
 
 # User-specific files
 *.rsuser
