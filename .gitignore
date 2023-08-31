@@ -3,8 +3,6 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/main/VisualStudio.gitignore
 
-# appsettings.json
-/VinylCollection/appsettings.json
 
 # User-specific files
 *.rsuser
@@ -400,3 +398,4 @@ FodyWeavers.xsd
 # JetBrains Rider
 *.sln.iml
 /VinylCollection/appsettings.json
+/VinylCollection/VinylCollection/appsettings.json
