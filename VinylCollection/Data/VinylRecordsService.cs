@@ -20,7 +20,9 @@ namespace VinylCollection.Data
         {
             try
             {
-                return _dbContext.VinylRecords.ToList();
+                return _dbContext.VinylRecords
+                    .OrderBy(v => v.AlbumName)
+                    .ToList();
             }
             catch
             {
