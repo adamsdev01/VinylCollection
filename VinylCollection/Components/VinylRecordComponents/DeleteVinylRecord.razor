@@ -1,0 +1,45 @@
+﻿@page "/Vinyl/Delete/{vinylRecordId:int}"
+
+<br />
+<div class="form-group">
+    <h4>Do you want to delete this record?</h4>
+    <p>We're not deleting anything!</p>
+    <table class="table">
+        <tbody>
+            <tr>
+                <td>Album</td>
+                <td>@vinylRecord.AlbumName</td>
+            </tr>
+            <tr>
+                <td>Artist</td>
+                <td>@vinylRecord.ArtistFullName</td>
+            </tr>           
+        </tbody>
+    </table>
+</div>
+<div class="form-group">
+    <input type="submit" value="Delete" @onclick="(async () => await RemoveVinyl(vinylRecord.VinylRecordId))" class="btn btn-danger" />
+    <input type="submit" value="Cancel" @onclick="(() => Cancel())" class="btn btn-warning" />
+</div>
+
+@code {
+    [Parameter]
+    public int vinylRecordId { get; set; }
+    VinylRecord vinylRecord = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        vinylRecord = _service.GetVinylRecordData(vinylRecordId);
+    }
+
+    protected async Task RemoveVinyl(int vinylRecordId)
+    {
+        //_service.DeleteVinylRecord(vinylRecordId);
+        _navigationManager.NavigateTo("/VinylsGrid");
+    }
+
+    void Cancel()
+    {
+        _navigationManager.NavigateTo("/VinylsGrid");
+    }
+}
